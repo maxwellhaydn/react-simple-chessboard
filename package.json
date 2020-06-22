@@ -60,7 +60,8 @@
   },
   "jest": {
     "moduleNameMapper": {
-      "^@chrisoakman/chessboardjs$": "<rootDir>/dist/chessboard.js"
+      "^@chrisoakman/chessboardjs$": "<rootDir>/dist/chessboard.js",
+      "\\.css$": "<rootDir>/__mocks__/styleMock.js"
     },
     "setupFilesAfterEnv": [
       "<rootDir>/src/setupTests.js"
