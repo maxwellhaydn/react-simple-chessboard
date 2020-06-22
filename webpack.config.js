@@ -12,15 +12,17 @@ const chessboardjsDist = path.resolve(
     'dist'
 );
 
-const chessboardjsEntry = glob.sync(
-    `${chessboardjsDist}/chessboard-+([0-9]).+([0-9]).+([0-9]).js`
-).pop();
+const prefix = `${chessboardjsDist}/chessboard-+([0-9]).+([0-9]).+([0-9])`;
+const chessboardjsEntry = glob.sync(`${prefix}.js`).pop();
+const chessboardjsCss = glob.sync(`${prefix}.css`).pop();
 
 module.exports = {
     entry: './src/index.js',
     resolve: {
         alias: {
-            '@chrisoakman/chessboardjs$': chessboardjsEntry
+            '@chrisoakman/chessboardjs$': chessboardjsEntry,
+            '@chrisoakman/chessboardjs.css$': chessboardjsCss,
+            img: path.resolve(__dirname, 'public/img')
         }
     },
     output: {
@@ -67,6 +69,21 @@ module.exports = {
                         babelrc: true
                     }
                 }
+            },
+            {
+                test: /\.css$/,
+                use: ['style-loader', 'css-loader']
+            },
+            {
+                test: /\.png$/,
+                use: [
+                    {
+                        loader: 'url-loader',
+                        options: {
+                            esModule: false
+                        }
+                    }
+                ]
             },
             {
                 test: chessboardjsEntry,

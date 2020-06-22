@@ -2,6 +2,8 @@ import React, { useEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
 import ChessboardJS from '@chrisoakman/chessboardjs';
 
+import '@chrisoakman/chessboardjs.css';
+
 const propTypes = {
     position: PropTypes.string
 };
@@ -13,7 +15,10 @@ const Chessboard = ({ position }) => {
     // Lazily instantiate ChessboardJS object
     const getBoard = () => {
         if (board.current === null) {
-            board.current = ChessboardJS(container.current);
+            board.current = ChessboardJS(container.current, {
+                pieceTheme: (piece) => require(`img/${piece}.png`),
+                position: 'start'
+            });
         }
 
         return board.current;
