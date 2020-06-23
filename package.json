@@ -2,7 +2,11 @@
   "name": "react-simple-chessboard",
   "version": "1.0.0",
   "description": "A minimal React chessboard component based on chessboard.js",
-  "main": "src/index.js",
+  "main": "dist/react-simple-chessboard.js",
+  "files": [
+    "dist/react-simple-chessboard.js",
+    "dist/*.png"
+  ],
   "scripts": {
     "test": "webpack --config webpack.chessboardjs.config.js --mode development && jest",
     "test:watch": "npm test -- --watch",
