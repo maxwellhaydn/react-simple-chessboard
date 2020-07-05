@@ -15,19 +15,27 @@ describe('Chessboard component', () => {
 
     beforeEach(() => jest.clearAllMocks());
 
-    it('should initialize the board to the start position', () => {
-        const wrapper = mount(<Chessboard />);
+    describe('controlled', () => {
 
-        const [lastCall] = ChessboardJS.mock.calls.slice(-1);
-        const position = lastCall[1].position;
+        it('should update chessboardjs position when position prop changes', () => {
+            const wrapper = mount(<Chessboard position="foo" />);
 
-        expect(position).to.equal('start');
+            expect(mockPosition).to.have.beenCalledWith('foo', true);
+        });
+
     });
 
-    it('should call the position method when position prop changes', () => {
-        const wrapper = mount(<Chessboard position="foo" />);
+    describe('uncontrolled', () => {
 
-        expect(mockPosition).to.have.beenCalledWith('foo');
+        it('should initialize the board to defaultPosition', () => {
+            const wrapper = mount(<Chessboard defaultPosition="foo" />);
+
+            const [lastCall] = ChessboardJS.mock.calls.slice(-1);
+            const position = lastCall[1].position;
+
+            expect(position).to.equal('foo');
+        });
+
     });
 
 });
