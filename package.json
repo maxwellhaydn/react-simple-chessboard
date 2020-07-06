@@ -1,6 +1,6 @@
 {
   "name": "react-simple-chessboard",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "A minimal React chessboard component based on chessboard.js",
   "main": "dist/react-simple-chessboard.js",
   "files": [
@@ -60,7 +60,8 @@
   },
   "dependencies": {
     "@chrisoakman/chessboardjs": "^1.0.0",
-    "prop-types": "^15.7.2"
+    "prop-types": "^15.7.2",
+    "uncontrollable": "^7.1.1"
   },
   "jest": {
     "moduleNameMapper": {
