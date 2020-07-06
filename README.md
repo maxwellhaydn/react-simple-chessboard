@@ -85,7 +85,6 @@ To use Chessboard as a controlled component, set the `position` property:
         return (
             <div className="app">
                 <Chessboard position={position} />
-setPosition(newPos)}/>
                 <button onClick={() => setPosition(positions.shift())}>
                     Move
                 </button>
@@ -176,12 +175,12 @@ for details.
 
 * [react-chess.js](https://github.com/maxwellhaydn/react-chess.js): React hook
 for integrating with the chess.js library, giving move validation, piece
-movement, and callbacks for legal moves, illegal moves, and game over.
+movement, and callbacks for legal moves, illegal moves, check, checkmate, etc.
 
 * [Chessboard.jsx](https://www.chessboardjsx.com/): Another "just a board"
 chessboard component for React, but with much more functionality than
-react-simple-chessboard, including drag-and-drop piece movement, multiple
-boards, and customizable pieces. Unfortunately, it appears to be unmaintained.
+react-simple-chessboard, including multiple boards and customizable pieces.
+Unfortunately, it is currently unmaintained.
 
 * [react-chess](https://github.com/rexxars/react-chess): Another React
 chessboard component with more features than react-simple-chessboard, but less
